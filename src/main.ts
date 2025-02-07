@@ -25,8 +25,6 @@ const loadDocument = async (): Promise<GoogleSpreadsheet | void> => {
 
   const doc = new GoogleSpreadsheet(DOCUMENT_ID, jwt);
 
-  console.log({ doc });
-
   return doc
     .loadInfo()
     .then(() => doc)
