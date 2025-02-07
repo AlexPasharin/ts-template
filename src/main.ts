@@ -23,6 +23,8 @@ const loadDocument = async (): Promise<GoogleSpreadsheet | void> => {
     scopes: SCOPES,
   });
 
+  console.log("check");
+
   const doc = new GoogleSpreadsheet(DOCUMENT_ID, jwt);
   return doc
     .loadInfo()
