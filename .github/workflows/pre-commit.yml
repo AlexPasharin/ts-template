@@ -1,0 +1,25 @@
+name: tsc, eslint and prettier checks on pull requests to main branch
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: check tsc, eslint and prettier
+        run: .husky/pre-commit
