@@ -49,7 +49,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
   }
 }
 
-const PAGES_TO_GENERATE = "Pages to generate";
+const PAGES_TO_GENERATE;
 
 console.log(PAGES_TO_GENERATE);
 
