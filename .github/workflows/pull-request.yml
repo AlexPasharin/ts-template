@@ -27,3 +27,6 @@ jobs:
 
       - name: Eslint check
         run: npx eslint
+
+      - name: Prettier
+        run: prettier --write .
