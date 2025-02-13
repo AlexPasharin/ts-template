@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
+    "module": "Node16",
+    "moduleResolution": "node16",
     "target": "es2022",
-    "lib": ["es2022", "DOM"],
+    "lib": ["es2022"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "verbatimModuleSyntax": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
+    "noEmitOnError": true,
+    "noEmit": true, // if we dont use intermediate explicit compile to js step
+    "allowImportingTsExtensions": true, // this won't work if we explicitly compile in js first
     "allowJs": false,
     "skipLibCheck": true,
     "moduleDetection": "force",
@@ -24,6 +25,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "exactOptionalPropertyTypes": true
-    // "outDir": "dist"
-  }
+    //"outDir": "dist" // if we DO use intermediate explicit compile to js step
+  },
+  "include": ["src/**/*.ts"]
 }
