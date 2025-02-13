@@ -22,6 +22,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
 
   try {
     await doc.loadInfo();
+
     return doc;
   } catch (err) {
     if (err !== null && typeof err === "object" && "status" in err) {
@@ -64,5 +65,7 @@ async function processDocument() {
   await pagesToGenerateSheet.loadCells();
 
   const cell = pagesToGenerateSheet.getCell(0, 0);
-  console.log(cell.value); // prints the value of the cell in first row and first column
+
+  // prints the value of the cell in first row and first column
+  console.log(cell.value);
 }
