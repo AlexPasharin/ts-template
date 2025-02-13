@@ -7,6 +7,7 @@ on:
 
 jobs:
   pr-checks:
+    name: pr-checks
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +24,6 @@ jobs:
 
       - name: Check tsc
         run: tsc --noEmit
+
+      - name: Eslint check
+        run: npx eslint
