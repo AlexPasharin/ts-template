@@ -19,7 +19,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: yarn
+      - run: yarn
 
       - name: check tsc, eslint and prettier
-        run: .husky/pre-commit
+      - run: .husky/pre-commit
