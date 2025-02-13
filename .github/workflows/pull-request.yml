@@ -7,6 +7,7 @@ on:
 
 jobs:
   pr-checks:
+    name: pr-checks
     runs-on: ubuntu-latest
 
     steps:
@@ -21,5 +22,11 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: check tsc, eslint and prettier
-        run: .husky/pre-commit
+      - name: Check tsc
+        run: tsc --noEmit
+
+      - name: Eslint check
+        run: npx eslint
+
+      - name: Prettier
+        run: npx prettier -c .
