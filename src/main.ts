@@ -49,12 +49,12 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
   }
 }
 
-const PAGES_TO_GENERATE = "Pages to generate";
+const PAGES_TO_GENERATE;
 
 async function processDocument() {
   const document = await loadDocument();
 
-  const pagesToGenerateSheet = document.sheetsByTitle[PAGES_TO_GENERATE];
+  const pagesToGenerateSheet = document.sheetsByTitle["Pages to generate"];
 
   if (!pagesToGenerateSheet) {
     throw Error(
