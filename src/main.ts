@@ -22,7 +22,6 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
 
   try {
     await doc.loadInfo();
-
     return doc;
   } catch (err) {
     if (err !== null && typeof err === "object" && "status" in err) {
