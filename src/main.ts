@@ -69,5 +69,3 @@ async function processDocument() {
   // prints the value of the cell in first row and first column
   console.log(cell.value);
 }
-
-console.log("check");
