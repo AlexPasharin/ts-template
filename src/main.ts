@@ -1,6 +1,6 @@
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
-import config from "./config.ts";
+import config from "./config";
 
 /*
   load test document and attempt to print the value of the cell in first row and first column in the tab named "Pages to generate"
