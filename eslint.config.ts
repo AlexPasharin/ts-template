@@ -67,6 +67,7 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/adjacent-overload-signatures": "error",
       "@typescript-eslint/consistent-generic-constructors": "warn",
+      "@typescript-eslint/method-signature-style": ["error", "property"],
       "@typescript-eslint/no-confusing-non-null-assertion": ["error"],
       "@typescript-eslint/no-confusing-void-expression": [
         "error",

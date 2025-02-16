@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "preserve",
+    "module": "preserve", // because we build with tsx now
     "target": "es2022",
     "lib": ["es2022"],
     "esModuleInterop": true,
