@@ -1,5 +1,6 @@
-import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+
 import config from "./config";
 import { getTwoLevelsHeaders } from "./utils/sheets";
 
@@ -45,7 +46,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
 
       if (status === 403) {
         throw Error(
-          `You don't have permission to access Google sheet with id ${documentId}`,
+          `You don't have permission to access Google sheet with id ${documentId}`
         );
       }
 
@@ -68,7 +69,7 @@ async function processDocument() {
 
   if (!pagesToGenerateSheet) {
     throw Error(
-      `Document does not contain a sheet named ${PAGES_TO_GENERATE} `,
+      `Document does not contain a sheet named ${PAGES_TO_GENERATE} `
     );
   }
 

@@ -1,5 +1,6 @@
 import eslint from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
+import importPlugin from "eslint-plugin-import";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -12,15 +13,49 @@ export default tseslint.config(
         projectService: {
           allowDefaultProject: ["eslint.config.ts", "lint-staged.config.js"],
         },
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
-
     plugins: {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-type-assertion, @typescript-eslint/no-explicit-any
       "@stylistic": stylistic as any, // see issue https://github.com/eslint-stylistic/eslint-stylistic/issues/659
+      "@import": importPlugin,
     },
     rules: {
+      "@import/order": [
+        "error",
+        {
+          "newlines-between": "always",
+          groups: [
+            "external",
+            "builtin",
+            "internal",
+            "sibling",
+            "parent",
+            "index",
+          ],
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+          pathGroupsExcludedImportTypes: ["builtin"],
+          pathGroups: [
+            {
+              pattern: "@feast-it",
+              group: "internal",
+            },
+          ],
+        },
+      ],
+      "@import/no-anonymous-default-export": "warn",
+      "no-bitwise": "error",
+      "no-console": [
+        "error",
+        {
+          allow: ["warn", "error", "info", "clear"],
+        },
+      ],
       "array-callback-return": [
         "error",
         { allowVoid: true, checkForEach: true },
@@ -116,6 +151,5 @@ export default tseslint.config(
       ],
       "@stylistic/no-mixed-operators": ["error", { allowSamePrecedence: true }],
     },
-  },
-  { ignores: ["dist/**/*"] },
+  }
 );

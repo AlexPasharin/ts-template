@@ -56,7 +56,7 @@ export async function getTwoLevelsHeaders(sheet: GoogleSpreadsheetWorksheet) {
     };
   });
 
-  console.log(JSON.stringify(headers, null, 4));
+  console.info(JSON.stringify(headers, null, 4));
 }
 
 function getCellValue({
@@ -73,7 +73,7 @@ function getCellValue({
   if (value instanceof GoogleSpreadsheetCellErrorValue) {
     // TODO: PROBABLY SHOULD BE A VALIDATION ERROR, THROWING ERROR FOR NOW
     throw Error(
-      `Cell in row ${rowIndex} and column ${columnIndex} contains a google sheet error`,
+      `Cell in row ${rowIndex} and column ${columnIndex} contains a google sheet error`
     );
   }
 
