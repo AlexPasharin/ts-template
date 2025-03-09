@@ -25,6 +25,5 @@
     "forceConsistentCasingInFileNames": true,
     "exactOptionalPropertyTypes": true
     //"outDir": "dist" // if we DO use intermediate explicit compile to js step
-  },
-  "include": ["src/**/*.ts"]
+  }
 }

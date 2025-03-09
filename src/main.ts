@@ -1,5 +1,6 @@
-import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+
 import config from "./config";
 
 /*
@@ -67,5 +68,5 @@ async function processDocument() {
   const cell = pagesToGenerateSheet.getCell(0, 0);
 
   // prints the value of the cell in first row and first column
-  console.log(cell.value);
+  console.info(cell.value);
 }

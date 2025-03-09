@@ -1,16 +1,17 @@
 {
-  "name": "ts-node-template",
+  "name": "ts-node-template-2025",
   "type": "module",
   "version": "1.0.0",
+  "license": "ISC",
+  "description": "2025 template for an average typescript project",
   "scripts": {
     "check-types": "tsc --noEmit",
     "dev": "tsx src/main.ts",
     "prettify": "prettier --write .",
-    "prepare": "husky"
+    "lint": "yarn eslint ."
   },
-  "license": "ISC",
-  "description": "2025 template for an average typescript project",
   "dependencies": {
+    "tsx": "^4.19.2",
     "dotenv": "16.4.7",
     "google-auth-library": "9.15.1",
     "google-spreadsheet": "4.1.4"
@@ -18,18 +19,17 @@
   "devDependencies": {
     "@eslint/js": "9.19.0",
     "@stylistic/eslint-plugin": "3.0.1",
-    "@stylistic/eslint-plugin-ts": "3.0.1",
     "@types/node": "22.13.1",
     "eslint": "9.19.0",
-    "husky": "9.1.7",
+    "eslint-plugin-import": "^2.31.0",
+    "husky": "^9.1.7",
     "jiti": "2.4.2",
-    "lint-staged": "15.4.3",
+    "lint-staged": "^15.4.3",
     "prettier": "3.4.2",
-    "tsx": "^4.19.2",
     "typescript": "5.7.3",
     "typescript-eslint": "8.23.0"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=23"
   }
 }
