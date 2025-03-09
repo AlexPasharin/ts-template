@@ -44,7 +44,7 @@ export default tseslint.config(
       ],
       "array-callback-return": [
         "error",
-        { allowVoid: true, checkForEach: true },
+        { allowVoid: true, checkForEach: true, allowImplicit: true },
       ],
       "no-duplicate-imports": "error",
       "no-import-assign": "error",
@@ -59,7 +59,7 @@ export default tseslint.config(
       "valid-typeof": ["error", { requireStringLiterals: true }],
       curly: "error",
       "default-case-last": "error",
-      eqeqeq: "error",
+      eqeqeq: ["error", "smart"],
       "no-case-declarations": "error",
       "no-else-return": ["error", { allowElseIf: false }],
       "no-eval": "error",
@@ -107,6 +107,12 @@ export default tseslint.config(
       ],
       "@typescript-eslint/no-unnecessary-template-expression": "error",
       "@typescript-eslint/no-unsafe-type-assertion": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+        },
+      ],
       "@typescript-eslint/prefer-find": "error",
       "@typescript-eslint/prefer-for-of": "error",
       "@typescript-eslint/prefer-function-type": "error",
