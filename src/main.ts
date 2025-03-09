@@ -1,8 +1,8 @@
-import { JWT } from "google-auth-library";
-import { GoogleSpreadsheet } from "google-spreadsheet";
+import { JWT } from 'google-auth-library';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-import config from "./config";
-import { getTwoLevelsHeaders } from "./utils/sheets";
+import config from './config';
+import { getTwoLevelsHeaders } from './utils/sheets';
 
 // import { google } from "googleapis";
 
@@ -21,7 +21,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
   const jwt = new JWT({
     email: client_email,
     key: private_key,
-    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
   // const sheets = google.sheets({ version: "v4", auth: jwt });
@@ -37,7 +37,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
 
     return doc;
   } catch (err) {
-    if (err !== null && typeof err === "object" && "status" in err) {
+    if (err !== null && typeof err === 'object' && 'status' in err) {
       const { status } = err;
 
       if (status === 404) {
@@ -64,7 +64,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
 async function processDocument() {
   const document = await loadDocument();
 
-  const PAGES_TO_GENERATE = "[NEW] Pages to generate - Togather 1";
+  const PAGES_TO_GENERATE = '[NEW] Pages to generate - Togather 1';
   const pagesToGenerateSheet = document.sheetsByTitle[PAGES_TO_GENERATE];
 
   if (!pagesToGenerateSheet) {
