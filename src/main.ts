@@ -1,7 +1,7 @@
-import { JWT } from 'google-auth-library';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { JWT } from "google-auth-library";
+import { GoogleSpreadsheet } from "google-spreadsheet";
 
-import config from './config';
+import config from "./config";
 
 /*
   load test document and attempt to print the value of the cell in first row and first column in the tab named "Pages to generate"
@@ -16,7 +16,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
   const jwt = new JWT({
     email: client_email,
     key: private_key,
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
   const doc = new GoogleSpreadsheet(documentId, jwt);
@@ -26,7 +26,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
 
     return doc;
   } catch (err) {
-    if (err !== null && typeof err === 'object' && 'status' in err) {
+    if (err !== null && typeof err === "object" && "status" in err) {
       const { status } = err;
 
       if (status === 404) {
@@ -35,7 +35,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
 
       if (status === 403) {
         throw Error(
-          `You don't have permission to access Google sheet with id ${documentId}`
+          `You don't have permission to access Google sheet with id ${documentId}`,
         );
       }
 
@@ -50,7 +50,7 @@ async function loadDocument(): Promise<GoogleSpreadsheet> {
   }
 }
 
-const PAGES_TO_GENERATE = 'Pages to generate';
+const PAGES_TO_GENERATE = "Pages to generate";
 
 async function processDocument() {
   const document = await loadDocument();
@@ -59,7 +59,7 @@ async function processDocument() {
 
   if (!pagesToGenerateSheet) {
     throw Error(
-      `Document does not contain a sheet named ${PAGES_TO_GENERATE} `
+      `Document does not contain a sheet named ${PAGES_TO_GENERATE} `,
     );
   }
 
